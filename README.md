@@ -1,2 +1,2 @@
 # RivalEvaluation
-![alt tag](https://github.com/Mattia26/RivalEvaluation.git/master/data/results/RecListSize20/graphs/Precision@20RecSize20.jpg)
+![alt tag](http://postimg.org/image/pfvepraez/][img]http://s33.postimg.org/pfvepraez/F_Measure_10_Rec_Size10.jpg)
