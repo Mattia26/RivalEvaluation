@@ -1,2 +1,2 @@
 # RivalEvaluation
-![alt tag](http://postimg.org/image/pfvepraez/)
+![alt tag](data/results/RecListSize20/graphs/Precision@20RecSize20.jpg)
