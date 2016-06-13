@@ -1,0 +1,10 @@
+Precision	all	1.0
+Precision@10	all	0.1741176470588235
+Recall	all	0.044233676008358085
+Recall@10	all	0.044233676008358085
+Precision	all	1.0
+Precision@10	all	0.15
+Precision@20	all	0.075
+Recall	all	0.03755508663602923
+Recall@10	all	0.03755508663602923
+Recall@20	all	0.03755508663602923
