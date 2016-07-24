@@ -1,0 +1,6 @@
+AggregateDiversity	all	0,012857142857142857
+AggregateDiversity@10	all	0,012857142857142857
+Precision	all	1.0
+Precision@10	all	0,12325581395348814
+Recall	all	0,04807339610459118
+Recall@10	all	0,04807339610459118

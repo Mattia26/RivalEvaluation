@@ -1,6 +1,8 @@
-dataset.file=./data/datasetFullCleaned.dat
+#dataset location and parser
+dataset.file=./data/7000ItemsDatasetClean.dat
 dataset.parser=net.recommenders.rival.core.SimpleParser
 
+#split output folder plus a bunch of parameters, you can specify more than one percentage per time
 split.output.folder=./data/splits/RecListSize20/
 split.output.overwrite=true
 split.training.prefix=lastFm_
@@ -9,11 +11,14 @@ split.test.prefix=lastFm_
 split.test.suffix=_test
 split.percentages=20,50,80,100
 
+#output folder for the recommendation files, factors is the size of the recommendation list
+#More than one baseline can be specified
 framework=lenskit
 output=./data/recommendations/RecListSize20
-baselines=ItemItem,FunkSVD,RandomPopularity,Popularity
+baselines=ItemItem,FunkSVD,RandomPopularity
 factors = 20
 
+#location of the files needed for the item candidate generation
 split.folder=./data/splits/RecListSize20/
 recommendation.folder=./data/recommendations/RecListSize20/
 output.ranking.folder=./data/ranking/RecListSize20/
@@ -23,7 +28,7 @@ recommendation.suffix=tsv
 strategy.relevance.thresholds=0
 strategy.classes=net.recommenders.rival.evaluation.strategy.UserTest
 
-
+#test files and ranking files location plus the metrics to be used plus a bunch of parameters you should know
 evaluation.pred.folder=./data/ranking/RecListSize20/
 evaluation.pred.prefix=
 evaluation.pred.format=SIMPLE

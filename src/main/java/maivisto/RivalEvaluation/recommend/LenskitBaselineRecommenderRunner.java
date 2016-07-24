@@ -1,6 +1,5 @@
 package maivisto.RivalEvaluation.recommend;
 
-
 import java.util.List;
 import java.util.Properties;
 
@@ -21,7 +20,9 @@ import org.grouplens.lenskit.data.dao.EventDAO;
 import org.grouplens.lenskit.data.dao.PrefetchingUserDAO;
 import org.grouplens.lenskit.data.dao.UserDAO;
 import org.grouplens.lenskit.iterative.IterationCount;
+import org.grouplens.lenskit.knn.NeighborhoodSize;
 import org.grouplens.lenskit.knn.item.ItemItemScorer;
+import org.grouplens.lenskit.knn.item.model.ItemItemModel;
 import org.grouplens.lenskit.mf.funksvd.FeatureCount;
 import org.grouplens.lenskit.mf.funksvd.FunkSVDItemScorer;
 import org.grouplens.lenskit.scored.ScoredId;
@@ -29,11 +30,11 @@ import org.grouplens.lenskit.transform.normalize.BaselineSubtractingUserVectorNo
 import org.grouplens.lenskit.transform.normalize.UserVectorNormalizer;
 import org.grouplens.lenskit.vectors.similarity.CosineVectorSimilarity;
 import org.grouplens.lenskit.vectors.similarity.VectorSimilarity;
-import maivisto.RivalEvaluation.baselines.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+import maivisto.RivalEvaluation.baselines.PopularityRec;
+import maivisto.RivalEvaluation.baselines.RandomPopularityRec;
 import net.recommenders.rival.core.DataModel;
 import net.recommenders.rival.recommend.frameworks.RecommendationRunner;
 import net.recommenders.rival.recommend.frameworks.RecommenderIO;
@@ -131,6 +132,37 @@ public class LenskitBaselineRecommenderRunner extends net.recommenders.rival.rec
         	config.bind(UserMeanBaseline.class,ItemScorer.class).to(ItemMeanRatingItemScorer.class);
         	config.set(MeanDamping.class).to(5.0);
         	break;
+//    	case "Cocoverage":
+//    		config.bind(ItemRecommender.class).to(CoCoverageRec.class);
+//    		config.bind(ItemScorer.class).to(UserMeanItemScorer.class);
+//    		config.bind(UserMeanBaseline.class,ItemScorer.class).to(ItemMeanRatingItemScorer.class);
+//    		config.set(MeanDamping.class).to(5.0);
+//    		break;
+//    	case "SeedRec":
+//    		config.set(StandardSeed.class).to(true);
+//        	config.bind(ItemRecommender.class).to(SeedRecommender.class);
+//        	config.bind(ItemScorer.class).to(UserMeanItemScorer.class);
+//        	config.bind(UserMeanBaseline.class,ItemScorer.class).to(ItemMeanRatingItemScorer.class);
+//        	config.set(MeanDamping.class).to(5.0);
+//        	config.set(NeighborhoodSize.class).to(10);
+//        	config.bind(CoOccurrenceModel.class,ItemItemModel.class).to(CoOccurrenceMatrixModel.class);
+//        	config.bind(CosineSimilarityModel.class,ItemItemModel.class).to(CosineSimilarityMatrixModel.class);
+//        	config.within(CosineSimilarityModel.class,ItemItemModel.class).bind(VectorSimilarity.class).to(CosineVectorSimilarity.class);
+//        	config.bind(ItemContentSimilarityModel.class,ItemItemModel.class).to(ItemContentMatrixModel.class);
+//        	break;
+//    	case "PosRec":
+//    		config.set(StandardSeed.class).to(false);
+//    		config.bind(ItemRecommender.class).to(SeedRecommender.class);
+//    		config.bind(ItemScorer.class).to(UserMeanItemScorer.class);
+//    		config.bind(UserMeanBaseline.class,ItemScorer.class).to(ItemMeanRatingItemScorer.class);
+//    		config.set(MeanDamping.class).to(5.0);
+//    		config.set(NeighborhoodSize.class).to(10);
+//    		config.bind(CoOccurrenceModel.class,ItemItemModel.class).to(CoOccurrenceMatrixModel.class);
+//    		config.bind(CosineSimilarityModel.class,ItemItemModel.class).to(CosineSimilarityMatrixModel.class);
+//    		config.within(CosineSimilarityModel.class,ItemItemModel.class).bind(VectorSimilarity.class).to(CosineVectorSimilarity.class);
+//    		config.bind(ItemContentSimilarityModel.class,ItemItemModel.class).to(ItemContentMatrixModel.class);
+//    		break;
+        
         	
         }
         UserDAO test = new PrefetchingUserDAO(testModel);

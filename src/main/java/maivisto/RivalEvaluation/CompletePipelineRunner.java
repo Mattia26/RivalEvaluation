@@ -1,16 +1,17 @@
 package maivisto.RivalEvaluation;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
 
+import maivisto.RivalEvaluation.evaluate.MultipleEvaluationMetricPercentageRunner;
 import maivisto.RivalEvaluation.recommend.MultipleBaselineRunner;
 import maivisto.RivalEvaluation.splitter.ColdSplitterRunner;
 import net.recommenders.rival.core.DataModel;
 import net.recommenders.rival.evaluation.metric.EvaluationMetricRunner;
-import net.recommenders.rival.evaluation.metric.MultipleEvaluationMetricRunner;
 import net.recommenders.rival.evaluation.strategy.MultipleStrategyRunner;
 import net.recommenders.rival.split.parser.ParserRunner;
 
@@ -50,13 +51,15 @@ public class CompletePipelineRunner
         	prepareStrategy(props);
         	
     	}
+    	
     	evaluate(props);
     	
+    
     	
     }
     public static void evaluate(Properties properties){
     	try {
-			MultipleEvaluationMetricRunner.run(properties);
+			MultipleEvaluationMetricPercentageRunner.run(properties);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -83,6 +83,7 @@ public class ColdSplitter<U, I> implements Splitter<U,I>{
 	 * @param allUsers HashSet containing all the users
 	 * @return HashSet containing all the cold start users
 	 */
+	@SuppressWarnings("unchecked")
 	private HashSet<U> selectColdUsers(HashSet<U> allUsers){
 		
 		HashSet<U> csUsers = new HashSet<U>();
@@ -101,7 +102,7 @@ public class ColdSplitter<U, I> implements Splitter<U,I>{
 	 * @param csUsers HashSet containing all the cold start users
 	 * @return HashMap with pairs <user,profile-size>
 	 */
-	@SuppressWarnings("unused")
+	
 	private HashMap<U,Integer> splitColdUsers(HashSet<U> csUsers){
 		int[] profileSizes1 = {0,1,2,3,4,5,6};
 		int[] profileSizes2 = {7,8,9,10,11,12,13};
